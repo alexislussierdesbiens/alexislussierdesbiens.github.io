@@ -27,8 +27,8 @@ author:
   pronouns         : # example: "she/her"  
   bio              : "Passionate about design innovation in robotics and sporting equipment!"
   location         : "Sherbrooke, Canada"
-  employer         : "[Université de Sherbrooke](https://www.usherbrooke.ca/)"
-  uri              : # URL
+  employer         : "https://www.usherbrooke.ca/"
+  uri              : "https://www.createk.co/" # URL
   email            : "alexis.lussier.desbiens@usherbrooke.ca" 
 
   # Academic websites
@@ -73,7 +73,7 @@ author:
   weibo            : # Username
   wikipedia        : # Username
   xing             : # Username
-  youtube          : # Username
+  youtube          : createkengineeringlab8302 # Username
   zhihu            : # Username
 
 # Publication Category - The following the list of publication categories and their headings
