@@ -34,10 +34,10 @@
         <li><a href="{{ author.uri }}"><i class="fas fa-fw fa-link icon-pad-right" aria-hidden="true"></i>{{ site.data.ui-text[site.locale].website_label | default: "Website" }}</a></li>
       {% endif %}
       {% if author.udes %}
-        <li><a href="{{ author.udes }}"><i class="fas fa-fw fa-building-columns icon-pad-right" aria-hidden="true"></i>{{ default: "Université de Sherbrooke" }}</a></li>
+        <li><a href="{{ author.udes }}"><i class="fas fa-fw fa-building-columns icon-pad-right" aria-hidden="true"></i>{{Université de Sherbrooke}}</a></li>
       {% endif %}
       {% if author.createk %}
-        <li><a href="{{ author.createk }}"><i class="fas fa-fw fa-link icon-pad-right" aria-hidden="true"></i>{{ default: "Createk" }}</a></li>
+        <li><a href="{{ author.createk }}"><i class="fas fa-fw fa-link icon-pad-right" aria-hidden="true"></i>{{"Createk"}}</a></li>
       {% endif %}
       {% if author.email %}
         <li><a href="mailto:{{ author.email }}"><i class="fas fa-fw fa-envelope icon-pad-right" aria-hidden="true"></i>{{ site.data.ui-text[site.locale].email_label | default: "Email" }}</a></li>
