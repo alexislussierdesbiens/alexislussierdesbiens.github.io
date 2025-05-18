@@ -27,8 +27,10 @@ author:
   pronouns         : # example: "she/her"  
   bio              : "Passionate about design innovation in robotics and sporting equipment!"
   location         : "Sherbrooke, Canada"
-  employer         : "Université de Sherbrooke"
-  uri              : "https://www.createk.co/" # URL
+  employer         : # "Université de Sherbrooke"
+  uri              : # "https://www.createk.co/" # URL
+  udes             : "https://www.usherbrooke.ca/" # URL
+  createk          : "https://www.createk.co/" # URL
   email            : "alexis.lussier.desbiens@usherbrooke.ca" 
 
   # Academic websites
