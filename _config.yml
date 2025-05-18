@@ -23,7 +23,7 @@ repository               : "alexislussierdesbiens.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "Alexis Lussier Desbiens"
+  name             : # "Alexis Lussier Desbiens"
   pronouns         : # example: "she/her"  
   bio              : "Passionate about design innovation in robotics and sporting equipment!"
   location         : "Sherbrooke, Canada"
