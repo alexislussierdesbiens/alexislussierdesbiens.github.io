@@ -9,6 +9,6 @@ redirect_from:
 
 {% include base_path %}
 
-Under development... 
+Stay tuned... 
 
 [![Watch the video](https://img.youtube.com/vi/E-ns-MxMJvU/hqdefault.jpg)](https://youtu.be/E-ns-MxMJvU)
