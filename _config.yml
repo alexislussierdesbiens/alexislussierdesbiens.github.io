@@ -26,9 +26,9 @@ author:
   name             : "Alexis Lussier Desbiens"
   pronouns         : # example: "she/her"  
   bio              : "Passionate about design innovation in robotics and sporting equipment!"
-  location         : "Sherbrooke"
-  employer         : "Université de Sherbrooke"
-  uri              : "https://www.usherbrooke.ca/"
+  location         : "Sherbrooke, Canada"
+  employer         : [Université de Sherbrooke](https://www.usherbrooke.ca/)
+  uri              : # URL
   email            : "alexis.lussier.desbiens@usherbrooke.ca" 
 
   # Academic websites
@@ -46,12 +46,12 @@ author:
   bitbucket        : # Username - Update with your username on the site
   codepen          : # Username
   dribbble         : # Username
-  github           : "academicpages"
+  github           : # Username
   kaggle           : # Username  
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
   # Social media
-  bluesky          : "bsky.app" # Replace this with you Bluesky username
+  bluesky          : # "bsky.app" # Replace this with you Bluesky username
   facebook         : # Username
   flickr           : # Username
   foursquare       : # Username
