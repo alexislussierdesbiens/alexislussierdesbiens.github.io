@@ -1,14 +1,10 @@
 ---
 layout: archive
-title: "SoothSki Skiing Performance Analysis"
+title: "SoothSki Performance Analysis"
 permalink: /SoothSkiPerformanceAnalysis/
 author_profile: true
 redirect_from:
   - /resume
----
-
-# 🎿 SoothSki Performance Analysis
-
 ---
 
 ## 📋 ONE-TIME SETUP (Do Once)
