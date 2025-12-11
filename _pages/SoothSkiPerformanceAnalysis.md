@@ -7,11 +7,7 @@ redirect_from:
   - /resume
 ---
 
-{% include base_path %}
-
-# 🎿 SoothSki
-
-**Skiing Performance Analysis**
+# 🎿 SoothSki Performance Analysis
 
 ---
 
