@@ -44,11 +44,11 @@ Complete steps 5-8 each time you go skiing
 
 ### Step 5: Start Recording
 
-Go to the **Logger** tab and tap **'Start Recording'**.
+In the Sensor Logger app, go to the **Logger** tab and tap **'Start Recording'**.
 
 ### Step 6: Go Skiing
 
-Place your phone in a chest pocket and **go enjoy your ski run!**
+Place your phone in a **chest pocket** and **go enjoy your ski day!**
 
 ### Step 7: Stop Recording & Upload
 
@@ -65,5 +65,6 @@ Visit your personalized webpage to review your skiing performance analysis. A li
 - **Fully charge your phone** before recording to ensure you have enough battery for the entire ski session
 - **Cell service is not necessary** – the app works completely offline and will save all sensor data locally
 - **Upload on wifi** – recording files are large, so upload on a wifi connection when you're back at the lodge or home
+- **Only works on iPhones** - more devices will be supported soon 
 
 <img src="../images/SoothSkiPerformanceAnalysis.png" width="200" height="200">
