@@ -67,4 +67,6 @@ Visit your personalized webpage to review your skiing performance analysis. A li
 - **Upload on wifi** – recording files are large, so upload on a wifi connection when you're back at the lodge or home
 - **Only works on iPhones** - more devices will be supported soon 
 
+<p align="center">
 <img src="../images/SoothSkiPerformanceAnalysis.png" width="200" height="200">
+</p>
