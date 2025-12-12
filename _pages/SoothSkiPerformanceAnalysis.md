@@ -66,3 +66,4 @@ Visit your personalized webpage to review your skiing performance analysis. A li
 - **Cell service is not necessary** – the app works completely offline and will save all sensor data locally
 - **Upload on wifi** – recording files are large, so upload on a wifi connection when you're back at the lodge or home
 
+<img src="../images/SoothSkiPerformanceAnalysis.png" width="200" height="200">
