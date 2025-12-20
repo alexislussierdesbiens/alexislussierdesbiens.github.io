@@ -70,3 +70,6 @@ Visit your personalized webpage to review your skiing performance analysis. A li
 <p align="center">
 <img src="../images/SoothSkiPerformanceAnalysis.png" width="200" height="200">
 </p>
+
+## Updates
+- 2025-12-20: Improved skiing/lift segmentation to prevent accidental inclusion of skinning and driving. 
