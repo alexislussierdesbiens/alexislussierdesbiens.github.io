@@ -7,7 +7,6 @@ redirect_from:
   - /about.html
 ---
 
-<meta name="google-site-verification" content="DNJemwubXP8l8cTolL1fkJTiwKFzxZL1MKr3IWcuXkU" />
 
 ![Alexis in Iceland](images/Alexis Iceland.jpeg)
 
