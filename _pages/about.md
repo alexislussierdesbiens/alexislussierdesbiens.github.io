@@ -7,6 +7,8 @@ redirect_from:
   - /about.html
 ---
 
+<meta name="google-site-verification" content="DNJemwubXP8l8cTolL1fkJTiwKFzxZL1MKr3IWcuXkU" />
+
 ![Alexis in Iceland](images/Alexis Iceland.jpeg)
 
 Hi! I have been a Professor of Mechanical & Robotics Engineering at the Université de Sherbrooke since 2013. I specialize in the modelling, control and design of novel aerial robotics systems, as well as the measurement and design of sports equipment. I received my PhD from Stanford in 2012, where I developed bio-inspired aerial vehicles and worked as a post-doctoral researcher at the Harvard Microrobotics Lab to develop the Robobee, an insect-size flying robot. I previously worked at the Canadian Space Agency and German Aerospace Center (DLR) on the dynamical modelling and hardware-in-the-loop simulation of satellite capture, and as a vehicle dynamicist & race car test engineer with Multimatic. 
