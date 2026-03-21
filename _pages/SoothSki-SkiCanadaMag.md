@@ -7,37 +7,37 @@ redirect_from:
   - /resume
 ---
 
-Below are the instructions to configure the app for the Ski Canada Mag on-snow ski test. The app will record your skiing performance (speed, acceleration, number of turns, turn radii, carving efficiency, etc.) and your impressions of each ski model. To use the app, follow these steps:
+Below are the instructions to configure the Sensor Logger app for the Ski Canada Mag on-snow ski test. The app will record your skiing and your impressions of each ski model. The data recorded will be analyzed by SoothSki to extract metrics like speed, acceleration, slope, number of turns, turn radius, carving efficiency, etc. To use the app, follow these steps:
 
 ---
 
 # ⚡ Quick Reference Checklist
 
 **Before Your First Ski Day:**
-- [ ] Download Sensor Logger app
-- [ ] Join the SoothSki-SkiCanada study
-- [ ] Complete your profile questionnaire
-- [ ] Enable GPS location for the app
+[ ]  Download Sensor Logger app
+[ ]  Join the SoothSki-SkiCanada study
+[ ]  Complete your profile questionnaire
+[ ]  Enable GPS location for the app
 
 **Before Each Ski Day:**
-- [ ] Fully charge your phone
+[ ]  Fully charge your phone
 
 **For Each Ski Model:**
-- [ ] Open Sensor Logger and tap "Start Recording"
-- [ ] Confirm **Study Active (SoothSki-SkiCanada)** appears at the top and tap **'Start Recording'**
-- [ ] Place phone in chest pocket and go skiing
-- [ ] Stop recording in the app when done with the ski
-- [ ] Complete the ski survey
+[ ]  Open Sensor Logger and tap "Start Recording"
+[ ]  Confirm **Study Active (SoothSki-SkiCanada)** appears at the top and tap **'Start Recording'**
+[ ]  Place phone in chest pocket and go skiing
+[ ]  Stop recording in the app when done with the ski
+[ ]  Complete the ski survey
 
 **After Testing:**
-- [ ] Upload data when you have wifi access
+[ ]  Upload data when you have wifi access
 
 ---
 
-# Detailed Instructions
+# 📝 Detailed Instructions
 
 
-## 📋 ONE-TIME SETUP (Do Once)
+## 📋 JOINING THE STUDY
 
 Complete steps 1-5 before your first ski day as it required downloading an app. 
 
@@ -88,7 +88,7 @@ Place your phone in a **chest pocket** and go test the ski.
 
 When finished with a ski model, tap **'Stop Recording'**. Confirm the end of the recording and answer the brief survey about the ski (model, impressions, best uses, etc.). You can review your answers before uploading. 
 
-## UPLOAD DATA
+## 📤 DATA UPLOAD 
 
 ### Step 9: Upload your Data
 
