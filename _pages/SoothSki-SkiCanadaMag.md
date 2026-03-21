@@ -14,23 +14,23 @@ Below are the instructions to configure the Sensor Logger app for the Ski Canada
 # ⚡ Quick Reference Checklist
 
 **Before Your First Ski Day:**
-[ ]  Download Sensor Logger app
-[ ]  Join the SoothSki-SkiCanada study
-[ ]  Complete your profile questionnaire
-[ ]  Enable GPS location for the app
+- [ ]  Download Sensor Logger app
+- [ ]  Join the SoothSki-SkiCanada study
+- [ ]  Complete your profile questionnaire
+- [ ]  Enable GPS location for the app
 
 **Before Each Ski Day:**
-[ ]  Fully charge your phone
+- [ ]  Fully charge your phone
 
 **For Each Ski Model:**
-[ ]  Open Sensor Logger and tap "Start Recording"
-[ ]  Confirm **Study Active (SoothSki-SkiCanada)** appears at the top and tap **'Start Recording'**
-[ ]  Place phone in chest pocket and go skiing
-[ ]  Stop recording in the app when done with the ski
-[ ]  Complete the ski survey
+- [ ]  Open Sensor Logger and tap "Start Recording"
+- [ ]  Confirm **Study Active (SoothSki-SkiCanada)** appears at the top and tap **'Start Recording'**
+- [ ]  Place phone in chest pocket and go skiing
+- [ ]  Stop recording in the app when done with the ski
+- [ ]  Complete the ski survey
 
 **After Testing:**
-[ ]  Upload data when you have wifi access
+- [ ]  Upload data when you have wifi access
 
 ---
 
