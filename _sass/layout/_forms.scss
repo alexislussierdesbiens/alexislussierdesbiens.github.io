@@ -120,6 +120,16 @@ input[type="radio"] {
   *height: 13px;
 }
 
+.task-list-item {
+  list-style: none;
+}
+
+.task-list-item input[type="checkbox"],
+.task-list-item-checkbox {
+  margin-right: 0.5em;
+  vertical-align: middle;
+}
+
 input[type="image"] {
   border: 0;
   box-shadow: none;
