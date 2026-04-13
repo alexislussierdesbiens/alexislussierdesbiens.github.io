@@ -2,17 +2,17 @@
 layout: archive
 title: "SoothSki's Data Analysis for Der Weisse Rausch"
 permalink: /SoothSki-DerWeisseRausch/
-author_profile: false
+author_profile: true
 ---
 
-Below are instructions to configure your phone and the Sensor Logger app for Der Weisse Rausch. The app records basic sensors available on your phone during the race (GPS, accelerometer, gyroscope, and barometer). Participation is optional, but every recording helps us improve the quality of race insights for all participants.
+Below are instructions to configure your phone and the Sensor Logger app for Der Weisse Rausch. The app records basic sensors available on your phone during the race (GPS, accelerometer, gyroscope, and barometer). SoothSki's advanced data analysis will transform your raw sensor data into detailed performance insights — so you can relive every moment of your race! Participation is optional, but every recording helps us improve the quality of race insights for all participants.
 
-SoothSki analyzes recorded data to extract race metrics across different segments, such as maximum speed, sustained acceleration, impact, climbing pace, aerodynamic efficiency, number of turns, etc. We will share your personal results with you after analysis. 
+SoothSki analyzes recorded data to extract race metrics across different segments, such as maximum speed, acceleration, impacts, climbing pace, aerodynamic efficiency, number of turns, etc. We will share your personal results with you after analysis. 
 
 We treat personal data as confidential and will not include identifying information in public outputs. Any research or publication will use anonymized or aggregated results so individuals cannot be identified.
 
 To use the app, follow these steps:
-
+(GPS, accelerometer, gyroscope and barometer)
 ---
 
 # ⚡ Quick Reference Checklist
@@ -57,11 +57,11 @@ Open Sensor Logger and go to the **Studies** tab. Tap the **'Create/Join'** butt
 
 ### Step 3: Enter Study Code
 
-Enter the study code when prompted or follow this [link](https://sensorlogger.app/link/study/83423e38):
+Enter the study code (weisse)when prompted or follow this [link](https://sensorlogger.app/link/study/weisse):
 
-```
-83423e38
-```
+<div style="text-align: center;">
+  <img src="/images/derweisserausch_qr.png" alt="QR code for joining study" style="max-width: 100%; height: auto; width: 700px;">
+</div>
 
 ### Step 4: Complete the questionnaire about yourself
 
