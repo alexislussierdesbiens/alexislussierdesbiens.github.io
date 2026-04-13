@@ -1,8 +1,8 @@
 ---
 layout: archive
-title: "SoothSki Skiing and Der Weisse Rausch"
+title: "SoothSki's Data Analysis for Der Weisse Rausch"
 permalink: /SoothSki-DerWeisseRausch/
-author_profile: true
+author_profile: false
 ---
 
 Below are instructions to configure your phone and the Sensor Logger app for Der Weisse Rausch. The app records basic sensors available on your phone during the race (GPS, accelerometer, gyroscope, and barometer). Participation is optional, but every recording helps us improve the quality of race insights for all participants.
