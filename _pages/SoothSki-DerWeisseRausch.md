@@ -60,7 +60,7 @@ Open Sensor Logger and go to the **Studies** tab. Tap the **'Create/Join'** butt
 Enter the study code (weisse)when prompted or follow this [link](https://sensorlogger.app/link/study/weisse):
 
 <div style="text-align: center;">
-  <img src="/images/derweisserausch_qr.png" alt="QR code for joining study" style="max-width: 100%; height: auto; width: 700px;">
+  <img src="/images/derweisserausch_qr.png" alt="QR code for joining study" style="max-width: 100%; height: auto; width: 200px;">
 </div>
 
 ### Step 4: Complete the questionnaire about yourself
