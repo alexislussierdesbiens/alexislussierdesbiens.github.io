@@ -7,7 +7,7 @@ author_profile: true
 
 Below are instructions to configure your phone and the Sensor Logger app for Der Weisse Rausch. The app records basic sensors available on your phone during the race (GPS, accelerometer, gyroscope, and barometer). SoothSki's advanced data analysis will transform your raw sensor data into detailed performance insights — so you can relive every moment of your race! Participation is optional, but every recording helps us improve the quality of race insights for all participants.
 
-SoothSki analyzes recorded data to extract race metrics across different segments, such as maximum speed, acceleration, impacts, climbing pace, aerodynamic efficiency, number of turns, etc. We will share your personal results with you after analysis. 
+SoothSki will analyze recorded data to extract race metrics across different segments, such as maximum speed, acceleration, impacts, climbing pace, aerodynamic efficiency, number of turns, etc. We will share your personal results with you after analysis. 
 
 We treat personal data as confidential and will not include identifying information in public outputs. Any research or publication will use anonymized or aggregated results so individuals cannot be identified.
 
@@ -19,23 +19,23 @@ To use the app, follow these steps:
 
 **Before Race Day:**
 - [ ]  Download Sensor Logger app
-- [ ]  Join the SoothSki-DerWeisseRausch study
-- [ ]  Enter your bib number
+- [ ]  Join the study SoothSki-DerWeisseRausch 
+- [ ]  Enter your bib number, weight and height
 - [ ]  Enable GPS location for the Sensor Logger app
 
 **On Race Day:**
 - [ ]  Fully charge your phone
 
 **Before the Race:**
-- [ ]  _You can do these steps hours before the race — the recorded file will be bigger, but we'll handle it!_
+- [ ]  _You can do these steps minutes to hours before the race — the recorded file will be bigger, but we'll handle it!_
 - [ ]  Open Sensor Logger  
 - [ ]  Confirm **Study Active (SoothSki-DerWeisseRausch)** appears at the top 
 - [ ]  Tap **Start Recording**. The app should start counting the number of recorded seconds.
 - [ ]  Place phone in chest pocket and enjoy the race  
 
 **After the Race:**
-- [ ]  Stop recording in the app. This can be done hours after the race, no worries.
-- [ ]  You can upload the data now or wait to have wifi access. 
+- [ ]  Stop recording in the app. This can be done hours after the race, no worries
+- [ ]  You can upload the data now or wait to have wifi access
 
 ---
 
