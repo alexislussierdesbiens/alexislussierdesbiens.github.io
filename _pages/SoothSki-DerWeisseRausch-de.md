@@ -14,42 +14,34 @@ author_profile: true
   </a>
 </div>
 
-Hier findest du die Anleitung, um dein Handy und die Sensor Logger App fuer Der Weisse Rausch zu konfigurieren. Die App zeichnet waehrend des Rennens grundlegende Sensoren auf deinem Handy auf (GPS, Beschleunigungsmesser, Gyroskop und Barometer). Die fortgeschrittene Datenanalyse von SoothSki wandelt deine Rohdaten in aussagekraeftige Leistungsmetriken um, damit du dein Rennen im Detail nachvollziehen kannst. Die Teilnahme ist freiwillig, aber jede Aufzeichnung hilft uns, die Qualitaet der Analysen fuer alle Teilnehmenden zu verbessern.
-
-Die Datenerfassung erfolgt ueber die Sensor Logger App ([Datenschutzrichtlinie](https://www.tszheichoi.com/sensor-logger-privacy-policy)), die Sensordaten auf deinem Geraet erfasst und zur Analyse an SoothSki uebermittelt. SoothSki verarbeitet diese Daten, um Leistungsmetriken zu berechnen (z. B. Maximalgeschwindigkeit, Beschleunigung, Einschlaege, Klettertempo, aerodynamische Effizienz und Anzahl der Kurven) und individuelle Berichte zu erstellen, die deiner Startnummer zugeordnet sind. Diese individuellen Berichte werden mit dem Veranstalter geteilt, der dir deine persoenlichen Ergebnisse direkt uebermittelt. Rohdaten werden nicht mit dem Veranstalter geteilt, und der Veranstalter stellt SoothSki keine zusaetzlichen personenbezogenen Informationen bereit.
-
-Wir behandeln personenbezogene Daten vertraulich. Oeffentliche Auswertungen, Forschungsarbeiten oder Publikationen verwenden nur anonymisierte oder aggregierte Ergebnisse, sodass keine einzelnen Personen identifiziert werden koennen.
+TBD
 
 ## Einwilligung
-Durch die Nutzung der App und die Aufzeichnung deines Rennens stimmst du zu, dass deine Sensordaten zur Leistungsanalyse erfasst und verarbeitet werden. Du verstehst, dass deine Daten zur Erstellung eines individuellen Leistungsberichts verwendet werden, der mit dem Veranstalter geteilt wird, damit deine persoenlichen Ergebnisse an dich uebermittelt werden koennen.
-
-Deine Daten koennen ausserdem in anonymisierter oder pseudonymisierter Form fuer Forschungs- und Entwicklungszwecke verwendet werden. Ohne deine ausdrueckliche Einwilligung werden keine identifizierbaren personenbezogenen Daten veroeffentlicht. Du kannst deine Einwilligung jederzeit durch Kontaktaufnahme mit dem Veranstalter widerrufen.
-
-Um die App zu verwenden, folge diesen Schritten:
+TBD
 
 ---
 
-# ⚡ Schnelluebersicht Checkliste
+# ⚡ Kurze Checkliste
 
 **Vor dem Renntag:**
-- [ ]  Sensor Logger App herunterladen
-- [ ]  Der Studie SoothSki-DerWeisseRausch beitreten
-- [ ]  Startnummer, Gewicht und Groesse eingeben
-- [ ]  GPS-Ortung fuer die Sensor Logger App aktivieren
+- [ ]  Lade die Sensor Logger App herunter.
+- [ ]  Tritt der Studie SoothSki-DerWeisseRausch bei.
+- [ ]  Gib deine Startnummer, dein Gewicht und deine Körpergröße ein.
+- [ ]  Aktiviere die GPS-Standortfreigabe für die Sensor Logger App.
 
 **Am Renntag:**
-- [ ]  Handy voll aufladen
+- [ ]  Lade dein Smartphone vollständig auf.
 
 **Vor dem Rennen:**
-- [ ]  _Du kannst diese Schritte Minuten bis Stunden vor dem Rennen machen - die Datei wird groesser, aber das ist fuer uns in Ordnung._
-- [ ]  Sensor Logger oeffnen
-- [ ]  Pruefen, dass oben **Study Active (SoothSki-DerWeisseRausch)** steht
-- [ ]  **Start Recording** tippen. Die App sollte dann die aufgezeichneten Sekunden hochzaehlen.
-- [ ]  Handy in die Brusttasche stecken und das Rennen geniessen
+- [ ]  _Diese Schritte kannst du einige Minuten bis mehrere Stunden vor dem Rennen durchführen – die aufgezeichnete Datei wird dann zwar größer, aber das ist für uns kein Problem._
+- [ ]  Öffne Sensor Logger.
+- [ ]  Prüfe, ob oben **Study Active (SoothSki-DerWeisseRausch)** angezeigt wird.
+- [ ]  Tippe auf **Start Recording**. Die App sollte dann beginnen, die Zahl der aufgezeichneten Sekunden mitzuzählen.
+- [ ]  Lege dein Smartphone in die Brusttasche und genieße das Rennen.
 
 **Nach dem Rennen:**
-- [ ]  Aufnahme in der App stoppen. Das kann auch erst Stunden nach dem Rennen passieren.
-- [ ]  Daten jetzt hochladen oder auf WLAN warten
+- [ ]  Stoppe die Aufzeichnung in der App. Das kann auch erst einige Stunden nach dem Rennen erfolgen – kein Problem.
+- [ ]  Du kannst die Daten sofort hochladen oder warten, bis du Zugang zu WLAN hast.
 
 ---
 
@@ -57,66 +49,68 @@ Um die App zu verwenden, folge diesen Schritten:
 
 ## 📋 DER STUDIE BEITRETEN
 
-Schliesse die Schritte 1-5 vor dem Renntag ab, da dafuer eine App heruntergeladen werden muss.
+Bitte führe die Schritte 1 bis 5 vor dem Renntag durch, da dafür zunächst eine App heruntergeladen werden muss.
 
 ### Schritt 1: Sensor Logger herunterladen
 
-Lade die Sensor Logger App im App Store deines Handys herunter:
+Lade die App Sensor Logger im App Store deines Smartphones herunter:
 - [www.tszheichoi.com/sensorlogger](https://www.tszheichoi.com/sensorlogger)
 
 ### Schritt 2: Der Studie beitreten
 
-Oeffne Sensor Logger und gehe zum Tab **Studies**. Tippe auf **Create/Join** und waehle dann **Join a Study**.
+Öffne Sensor Logger und gehe zum Reiter **Studies**. Tippe auf **Create/Join** und wähle anschließend **Join a Study** aus.
 
 ### Schritt 3: Studiencode eingeben
 
-Gib den Studiencode (weisse) ein oder nutze diesen [Link](https://sensorlogger.app/link/study/weisse):
+Gib den Studiencode **weisse** ein, wenn du dazu aufgefordert wirst, oder nutze den entsprechenden [Link](https://sensorlogger.app/link/study/weisse):
 
 <div style="text-align: center;">
-  <img src="/images/derweisserausch_qr.png" alt="QR Code fuer den Studienbeitritt" style="max-width: 100%; height: auto; width: 200px;">
+  <img src="/images/derweisserausch_qr.png" alt="QR-Code zum Beitritt zur Studie" style="max-width: 100%; height: auto; width: 200px;">
 </div>
 
-### Schritt 4: Fragebogen ausfuellen
+### Schritt 4: Fragebogen zu deiner Person ausfüllen
 
-Fuelle den kurzen Fragebogen mit deinen Angaben aus:
+Fülle den kurzen Fragebogen mit folgenden Angaben aus:
 - Startnummer
 - Gewicht (in kg)
-- Groesse (in cm)
+- Körpergröße (in cm)
 
 ### Schritt 5: Standort aktivieren
 
-Aktiviere den GPS-Standort fuer Sensor Logger, falls noch nicht aktiviert.
+Aktiviere die GPS-Standortfreigabe für Sensor Logger, falls diese noch nicht freigegeben ist.
 
 ---
 
 ## 🎿 AM RENNTAG
 
-Fuehre diese Schritte am Renntag aus.
+Bitte führe die folgenden Schritte am Renntag durch.
 
-### Schritt 6: Handy laden
+### Schritt 6: Smartphone aufladen
 
-Stelle sicher, dass dein Handy voll geladen ist, damit der Akku fuer das ganze Event reicht.
+Achte darauf, dass dein Smartphone vor dem Renntag vollständig geladen ist, damit der Akku für die gesamte Veranstaltung ausreicht.
 
 ### Schritt 7: Aufnahme starten
 
-Gehe in Sensor Logger zum Tab **Logger**, pruefe, dass oben **Study Active (SoothSki-DerWeisseRausch)** steht, und tippe unten auf **Start Recording**. Wenn du noch nicht in der Studie bist, tritt zuerst bei (siehe [Schritt 2](#schritt-2-der-studie-beitreten)). Du kannst die Aufnahme Minuten bis Stunden vor dem Rennen starten; dadurch wird nur die Datei groesser.
+Öffne in der Sensor Logger App den Reiter **Logger**, prüfe, ob oben **Study Active (SoothSki-DerWeisseRausch)** angezeigt wird, und tippe unten auf **Start Recording**.
+Falls du der Studie noch nicht beigetreten bist, hole das bitte zuerst nach (siehe [Schritt 2](#schritt-2-der-studie-beitreten)).
+Du kannst die Aufzeichnung einige Minuten bis mehrere Stunden vor dem Rennen starten; dadurch entsteht lediglich eine größere Datei. Das ist für uns problemlos handhabbar.
 
-Trage dein Handy in einer **Brusttasche**. Das liefert die besten Daten fuer die Analyse.
+Lege dein Smartphone anschließend in eine **Brusttasche**. Für die Datenauswertung ist eine Brusttasche die beste Position.
 
-### Schritt 8: Rennen fahren
+### Schritt 8: Rennen!
 
-Lass dein Handy in der Brusttasche und fahr dein Rennen. Viel Erfolg!
+Lass dein Smartphone in der Brusttasche und fahre das Rennen. Viel Erfolg!
 
-### Schritt 9: Aufnahme stoppen
+### Schritt 9: Aufzeichnung stoppen
 
-Wenn du mit dem Rennen fertig bist, tippe auf **Stop Recording**. Tippe auf **Confirm**, um das Ende der Aufnahme zu bestaetigen. Du kannst die Daten sofort ueber Mobilfunk hochladen oder auf WLAN warten.
+Wenn du das Rennen beendet hast, tippe auf **Stop Recording**. Bestätige anschließend mit **Confirm**, um die Aufzeichnung zu beenden. Du kannst deine Daten direkt über das Mobilfunknetz hochladen oder warten, bis du WLAN-Zugang hast.
 
-Diesen Schritt kannst du auch erst Stunden nach dem Rennen erledigen.
+Auch diesen Schritt kannst du problemlos erst einige Stunden nach dem Rennen erledigen.
 
 ### Schritt 10: Daten hochladen
 
-Wenn du auf WLAN gewartet hast, gehe zum Tab **Recordings**, waehle die Rennaufnahme aus und tippe auf **Upload**. Warte in der App, bis der Upload abgeschlossen ist, sonst erscheint eine Fehlermeldung.
+Falls du mit dem Upload bis zum WLAN-Zugang gewartet hast, gehe zum Reiter **Recordings**, wähle die Aufzeichnung des Rennens aus und tippe auf **Upload**. Wichtig: Du musst in der App warten, bis die Aufzeichnung vollständig hochgeladen wurde. Andernfalls erscheint eine Fehlermeldung.
 
-Wir werten die Daten in den kommenden Monaten aus. Die Ergebnisse werden dir ueber die Rennorganisation zugestellt.
+Wir werden die Daten in den kommenden Monaten sammeln und auswerten. Die Ergebnisse erhältst du anschließend über die Rennveranstalter.
 
 ---
