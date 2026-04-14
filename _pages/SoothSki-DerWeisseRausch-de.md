@@ -14,10 +14,19 @@ author_profile: true
   </a>
 </div>
 
-TBD
+Nachfolgend findest du eine Anleitung, wie du dein Smartphone und die App Sensor Logger für Der Weiße Rausch einrichtest. Die App zeichnet während des Rennens die auf deinem Smartphone verfügbaren Basissensoren auf, darunter GPS, Beschleunigungssensor, Gyroskop und Barometer. SoothSkis fortschrittliche Datenanalyse wandelt diese Rohdaten in detaillierte Einblicke in deine Leistung um – damit du jeden Moment deines Rennens noch einmal nachvollziehen kannst! Die Teilnahme ist freiwillig, aber jede Aufzeichnung hilft uns dabei, die Qualität der Rennauswertungen für alle Teilnehmenden weiter zu verbessern.
+
+Die Datenerfassung erfolgt über die App Sensor Logger ([Datenschutzrichtlinie](https://www.tszheichoi.com/sensor-logger-privacy-policy)). Diese sammelt Sensordaten auf deinem Gerät und übermittelt sie zur Analyse an SoothSki. SoothSki verarbeitet diese Daten, um Leistungskennzahlen zu ermitteln, zum Beispiel Höchstgeschwindigkeit, Beschleunigung, Belastungen bzw. Stöße, Steigtempo, aerodynamische Effizienz und die Anzahl der Schwünge, und erstellt daraus individuelle Berichte, die mit deiner Startnummer verknüpft sind. Diese individuellen, deiner Startnummer zugeordneten Berichte werden dem Veranstalter übermittelt, der dir deine persönlichen Ergebnisse direkt zusendet. Der Veranstalter löscht die Berichte nach der Übermittlung. Die Rohdaten der Sensoren werden nicht mit dem Veranstalter geteilt, und der Veranstalter stellt SoothSki keine weiteren personenbezogenen Daten der Rennteilnehmenden zur Verfügung.
+
+Wir behandeln personenbezogene Daten vertraulich. Öffentliche Auswertungen, Forschungsarbeiten oder Veröffentlichungen erfolgen ausschließlich in anonymisierter oder aggregierter Form, sodass keine Rückschlüsse auf einzelne Personen möglich sind.
 
 ## Einwilligung
-TBD
+
+Durch die Nutzung der App und die Aufzeichnung deines Rennens erklärst du dich damit einverstanden, dass deine Sensordaten für die Leistungsanalyse erhoben und verarbeitet werden dürfen. Dir ist bekannt, dass deine Daten verwendet werden, um einen individuellen Leistungsbericht zu erstellen, der an den Veranstalter weitergegeben wird, damit dieser dir deine persönlichen Ergebnisse übermitteln kann.
+
+Deine Daten können außerdem in anonymisierter oder pseudonymisierter Form für Zwecke der Forschung und Weiterentwicklung verwendet werden. Ohne deine ausdrückliche Einwilligung werden keine personenbezogenen Daten veröffentlicht, mit denen du identifiziert werden könntest. Du kannst deine Einwilligung jederzeit widerrufen, indem du den Veranstalter kontaktierst.
+
+Um die App zu nutzen, folge bitte diesen Schritten:
 
 ---
 
