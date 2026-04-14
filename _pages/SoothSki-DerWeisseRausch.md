@@ -7,10 +7,10 @@ author_profile: true
 
 <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 1rem;">
   <a href="/SoothSki-DerWeisseRausch/" title="English page">
-    <img src="https://flagcdn.com/gb.svg" alt="English" style="height: 34px; width: auto; border-radius: 4px; box-shadow: 0 0 0 1px rgba(0,0,0,0.15);">
+    <img src="https://flagcdn.com/gb.svg" alt="English" style="height: 20px; width: auto; border-radius: 4px; box-shadow: 0 0 0 1px rgba(0,0,0,0.15);">
   </a>
   <a href="/SoothSki-DerWeisseRausch-de/" title="German page">
-    <img src="https://flagcdn.com/de.svg" alt="Deutsch" style="height: 34px; width: auto; border-radius: 4px; box-shadow: 0 0 0 1px rgba(0,0,0,0.15);">
+    <img src="https://flagcdn.com/de.svg" alt="Deutsch" style="height: 20px; width: auto; border-radius: 4px; box-shadow: 0 0 0 1px rgba(0,0,0,0.15);">
   </a>
 </div>
 
