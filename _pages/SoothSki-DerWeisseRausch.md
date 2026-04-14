@@ -5,14 +5,19 @@ permalink: /SoothSki-DerWeisseRausch/
 author_profile: true
 ---
 
-Below are instructions to configure your phone and the Sensor Logger app for Der Weisse Rausch. The app records basic sensors available on your phone during the race (GPS, accelerometer, gyroscope, and barometer). SoothSki's advanced data analysis will transform your raw sensor data into detailed performance insights — so you can relive every moment of your race! Participation is optional, but every recording helps us improve the quality of race insights for all participants.
+Below are instructions to configure your phone and the Sensor Logger app for Der Weisse Rausch. The app records basic sensors available on your phone during the race (GPS, accelerometer, gyroscope, and barometer). SoothSki’s advanced data analysis will transform your raw sensor data into detailed performance insights — so you can relive every moment of your race! Participation is optional, but every recording helps us improve the quality of race insights for all participants.
 
-SoothSki will analyze recorded data to extract race metrics across different segments, such as maximum speed, acceleration, impacts, climbing pace, aerodynamic efficiency, number of turns, etc. We will share your personal results with you after analysis. 
+Data is recorded using the Sensor Logger app ([data policy](https://www.tszheichoi.com/sensor-logger-privacy-policy)), which collects sensor data on your device and transmits it to SoothSki for analysis. SoothSki processes this data to extract performance metrics (e.g., maximum speed, acceleration, impacts, climbing pace, aerodynamic efficiency, number of turns) and generate individualized reports associated with your bib number. Individualized reports linked to your bib number will be shared with the event organizer, who will send them to you directly. Raw sensor data is not shared with the organizer, and the event organizer does not provide additional personal information to SoothSki.
 
-We treat personal data as confidential and will not include identifying information in public outputs. Any research or publication will use anonymized or aggregated results so individuals cannot be identified.
+We treat personal data as confidential. Any public outputs, research, or publications will use anonymized or aggregated results so individuals cannot be identified.
+
+## Consent
+By using the app and recording your race, you agree that your sensor data may be collected and processed for performance analysis. You understand that your data will be used to generate an individual performance report, which will be shared with the event organizer to deliver your personal results to you.
+
+Your data may also be used in anonymized or pseudonymized form for research and development purposes. No identifiable personal data will be made public without your explicit consent. You may withdraw your consent at any time by contacting the organizer.
 
 To use the app, follow these steps:
-(GPS, accelerometer, gyroscope and barometer)
+
 ---
 
 # ⚡ Quick Reference Checklist
