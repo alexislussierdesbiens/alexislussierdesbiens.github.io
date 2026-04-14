@@ -5,6 +5,15 @@ permalink: /SoothSki-DerWeisseRausch/
 author_profile: true
 ---
 
+<div style="display: flex; gap: 12px; align-items: center; margin-bottom: 1rem;">
+  <a href="/SoothSki-DerWeisseRausch/" title="English page">
+    <img src="https://flagcdn.com/gb.svg" alt="English" style="height: 34px; width: auto; border-radius: 4px; box-shadow: 0 0 0 1px rgba(0,0,0,0.15);">
+  </a>
+  <a href="/SoothSki-DerWeisseRausch-de/" title="German page">
+    <img src="https://flagcdn.com/de.svg" alt="Deutsch" style="height: 34px; width: auto; border-radius: 4px; box-shadow: 0 0 0 1px rgba(0,0,0,0.15);">
+  </a>
+</div>
+
 Below are instructions to configure your phone and the Sensor Logger app for Der Weisse Rausch. The app records basic sensors available on your phone during the race (GPS, accelerometer, gyroscope, and barometer). SoothSki’s advanced data analysis will transform your raw sensor data into detailed performance insights — so you can relive every moment of your race! Participation is optional, but every recording helps us improve the quality of race insights for all participants.
 
 Data is recorded using the Sensor Logger app ([data policy](https://www.tszheichoi.com/sensor-logger-privacy-policy)), which collects sensor data on your device and transmits it to SoothSki for analysis. SoothSki processes this data to extract performance metrics (e.g., maximum speed, acceleration, impacts, climbing pace, aerodynamic efficiency, number of turns) and generate individualized reports associated with your bib number. Individualized reports linked to your bib number will be shared with the event organizer, who will send them to you directly. Raw sensor data is not shared with the organizer, and the event organizer does not provide additional personal information to SoothSki.
