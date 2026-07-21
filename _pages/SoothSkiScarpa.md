@@ -50,7 +50,9 @@ Complete steps 5-8 each time you go skiing
 
 ### Step 5: Start Recording
 
-In the Sensor Logger app, go to the **Logger** tab and tap **'Start Recording'**.
+In the Sensor Logger app, go to the **Logger** tab, make sure that it says "Study Active - Participating in "SoothSki-Scarpa"." at the top of the screen, and tap **'Start Recording'** at the bottom.
+
+You should make sure you enabled Location permission, at least when the app is running. 
 
 ### Step 6: Go Skiing
 
