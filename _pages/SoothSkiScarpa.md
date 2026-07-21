@@ -1,7 +1,7 @@
 ---
 layout: archive
-title: "SoothSki Performance Analysis"
-permalink: /SoothSkiPerformanceAnalysis/
+title: "SoothSki Performance Analysis for Scarpa"
+permalink: /SoothSkiScarpa/
 author_profile: true
 redirect_from:
   - /resume
