@@ -25,7 +25,7 @@ Open Sensor Logger and go to the **Studies** tab. Tap the **'Create/Join'** butt
 Enter the study code when prompted:
 
 ```
-19962bb0
+e6c98b1c
 ```
 
 Or scan this QR code: 
