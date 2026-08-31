@@ -1,0 +1,67 @@
+%
+% Equations Babyboot avec Roadmaps et Kane
+% Problem 21.10, Automne 2022
+%
+
+NewtonianFrame N
+RigidBody A, B
+Point Ab(A)
+
+Variable qA'', qB''
+Variable RAx, RAy, RAz, MAy, MAz % selon N
+Variable RBx, RBy, RBz, MBx, MBy % selon A
+
+Constant g, LA, LB, mA, mB, IA, IBxx, IByy, IBzz
+Constant LBoAo
+
+A.SetMass(mA)
+B.SetMass(mB)
+
+A.SetInertia(Acm, IA, 0, 0)
+B.SetInertia(Bcm, IBxx, IByy, IBzz)
+
+A.RotateX(N,qA)
+B.RotateZ(A,qB)
+
+Acm.Translate(No, -LA*Az>)
+Bcm.Translate(No, -LB*Az>)
+Ao.Translate(No, 0>)
+Ab.Translate(No, -LBoAo*Az>)
+Bo.Translate(Ab, 0>)
+
+System.AddForceGravity(-g*Nz>)
+Ao.AddForce(No, RAx*Nx> + RAy*Ny> + RAz*Nz>)
+A.AddTorque(N, MAy*Ny> + MAz*Nz>)
+Bo.AddForce(Ab, RBx*Ax> + RBy*Ay> + RBz*Az>)
+B.AddTorque(A, MBx*Ax> + MBy*Ay>)
+
+% Roadmaps
+
+EqnRoadmaps[1] = Dot( Nx>, System.GetDynamics(Ao) )
+EqnRoadmaps[2] = Dot( Az>, B.GetDynamics(Bo) )
+
+SolutionRoadmaps = solve(EqnRoadmaps, qA'', qB'')
+
+% Kane
+
+SetGeneralizedSpeed(qA', qB')
+EqnKane = System.GetDynamicsKane()
+
+SolutionKane = solve(EqnKane, qA'', qB'')
+
+SolutionRoadmaps - SolutionKane
+
+% solve(EqnKane, qA'', qB'')
+
+Input g = 9.81 m/s^2
+Input LA = 7.5 cm, LB = 20 cm
+Input mA = 0.01 kg, mB = 0.1 kg
+Input IA = 0.05 kg*cm^2, IBxx = 2.5 kg*cm^2, IByy = 0.5 kg*cm^2, IBzz = 20 kg*cm^2
+
+Input qA = 10 deg, qA' = 0 deg/s, qB = 1 deg, qB' = 0 deg/s
+Input tFinal = 3 sec
+
+Output t sec, qA deg, qB deg
+
+ODE(EqnKane, qA'', qB'') BabybootEquationsAutoSimulation
+

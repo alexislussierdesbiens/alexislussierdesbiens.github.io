@@ -1,0 +1,34 @@
+% Problème 9.5a
+
+Variable x'',y'', theta'
+
+Constant vb = 15 m/s 
+
+% First two equations are the velocity expressions
+eq[1]=-x'+vb*cos(theta)
+eq[2]=-y'+vb*sin(theta)-(0.1+0.098*x-0.00049*x^2)
+% Third equation is the constraint
+eq[3]=1/4-y'/x'
+
+% We want to solve for x'(x=0), y'(x=0), theta(x=0)
+% Those are the initial conditions
+SolveSetInput(Evaluate(eq,x=0), x'=1 m/s,y'=1 m/s,theta=13 deg)
+% Important to use solvesetinput instead of solve:
+%   (solve set x', y' and theta to constants values)... 
+
+% - We could keep solving the non-linear equations for x', y' and theta 
+%     at each timestep and integrate forward to find x and y. 
+% - However, the non-linear solver takes a long time to run
+% - Instead, we differentiate the equations to get ODEs that 
+%     are linear in x'', y'' and theta'. With the right initial conditions found
+%     previously, we can integrate forward for x', y', x, y and theta. That is FAST!
+
+% Initial x and y conditions
+Input x=0 m,y=0 m
+% Integrate until the given stop time, if we have x = 200 and y = 50 then we are good!
+Input tfinal=15.025 sec
+
+Output t sec, x m , y m, x' m/s, y' m/s, theta deg
+
+% Integrate the derivative of the equations
+ODE(dt(eq), x'',y'',theta')

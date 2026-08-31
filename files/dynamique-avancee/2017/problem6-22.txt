@@ -1,0 +1,11 @@
+Variable qx'', qy'', qz''
+RigidFrame N, B
+
+% Set the rotation matrix and automatically calculate the angular velocity and acceleration (not quite the acceleration)
+B.rotate(N,bodyxyz,qx,qy,qz)
+
+% Calculate the angular velocity manually according to eqn 7.3 (7.4 would have worked too). The command express(by>,N) could also have been useful. 
+w_B_N_manual> = dot(dt(by>,N),bz>)*bx> + dot(dt(bz>,N),bx>)*by>+dot(dt(bx>,N),by>)*bz>
+
+% Check if both results are the same… 
+W_B_N>-W_B_N_manual>

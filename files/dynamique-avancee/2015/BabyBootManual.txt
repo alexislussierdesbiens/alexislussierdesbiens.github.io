@@ -1,0 +1,63 @@
+%% Solve BabyBoot problem without relying on built in function in MG
+
+variable qA'', qB''
+Constant LA, LB
+Constant IA, IBxx, IByy, IBzz
+Constant mA, mB
+Constant g
+RigidFrame N, A, B
+Point Acm, Bcm
+
+% Define position vectors, angular positions and angular velocities
+r_No_Acm> = -LA*Az>
+r_No_Bcm> = -LB*Az>
+w_A_N> = qA'*Nx>
+w_B_N> = qA'*Nx> + qB'*Az>
+N_A = [1, 0, 0; 0, cos(qA), -sin(qA); 0, sin(qA), cos(qA)]
+A_B = [cos(qB), -sin(qB), 0; sin(qB), cos(qB), 0; 0, 0, 1]
+
+% Define inertia
+I_A_Acm>> = IA*nx>*nx>
+I_B_Bcm>> = IBxx*bx>*bx> + IByy*by>*by> + IBzz*bz>*bz>
+
+%% Differentiate to get linear and angular velocities and accelerations
+
+alf_A_N> = Dt(w_A_N>,N)
+alf_B_N> = Dt(w_B_N>,N)
+
+v_Acm_N> = Dt(r_No_Acm>,N)
+a_Acm_N> = Dt(v_Acm_N>,N)
+
+v_Bcm_N> = Dt(r_No_Bcm>,N)
+a_Bcm_N> = Dt(v_Bcm_N>,N)
+
+%% Kane method for generalized speed qA'
+
+
+GeneralizedResultantForce_AandB_qA = Dot( mA*g*(-Nz>) , D(v_Acm_N>,qA',N) ) + Dot( mB*g*(-Nz>) , D(v_Bcm_N>,qA',N) )  
+
+GeneralizedEffectiveForce_A_qA = Dot( D(v_Acm_N>,qA',N) , mA*a_Acm_N> ) +  Dot( D(w_A_N>,qA',N) , Dot(I_A_Acm>>,alf_A_N>) ) 
+
+GeneralizedEffectiveForce_B_qA = Dot( D(v_Bcm_N>,qA',N) , mB*a_Bcm_N> ) +  Dot( D(w_B_N>,qA',N) , Dot(I_B_Bcm>>,alf_B_N>) + Cross( w_B_N>,  Dot(I_B_Bcm>>, w_B_N>))) 
+
+Kane_qA = -GeneralizedResultantForce_AandB_qA + GeneralizedEffectiveForce_A_qA + GeneralizedEffectiveForce_B_qA
+
+solve(Kane_qA,qA'')
+
+explicit(qA'')
+
+%% Kane method for generalized speed qB' (just need to change the partial wrt qA' to qB'
+
+GeneralizedResultantForce_AandB_qB = Dot( mA*g*(-Nz>) , D(v_Acm_N>,qB',N) ) + Dot( mB*g*(-Nz>) , D(v_Bcm_N>,qB',N) )  
+
+GeneralizedEffectiveForce_A_qB = Dot( D(v_Acm_N>,qB',N) , mA*a_Acm_N> ) +  Dot( D(w_A_N>,qB',N) , Dot(IA*nx>*nx>,alf_A_N>) ) 
+
+GeneralizedEffectiveForce_B_qB = Dot( D(v_Bcm_N>,qB',N) , mB*a_Bcm_N> ) +  Dot( D(w_B_N>,qB',N) , Dot(I_B_Bcm>>,alf_B_N>) + Cross( w_B_N>,  Dot(I_B_Bcm>>, w_B_N>))) 
+
+Kane_qB = -GeneralizedResultantForce_AandB_qB + GeneralizedEffectiveForce_A_qB + GeneralizedEffectiveForce_B_qB
+
+solve(Kane_qB,qB'')
+
+explicit(qB'')
+
+%% Vous pouvez comparer aux résultats dans le livre (HW20.5)

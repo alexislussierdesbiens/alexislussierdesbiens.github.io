@@ -1,0 +1,17 @@
+% Problem 9.4
+
+Variable x'', theta'
+
+Constant vb = 15 m/s 
+Constant co = 0.1, c1 = 0.098, c2 = -0.00049
+
+eq[1] = x'-vb*cos(theta)
+% y' = 0 to go in straight line
+eq[2] = vb*sin(theta) - (co + c1*x + c2*x^2)
+
+SolveSetInput(Evaluate(eq,x=0), x' = 5 m/s, theta = 20 deg)
+
+Input x = 0 m, tFinal = 13.76 sec
+Output t sec, x m, theta deg
+
+ODE(dt(eq), x'', theta')

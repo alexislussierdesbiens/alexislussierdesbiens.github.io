@@ -1,0 +1,15 @@
+%     File:  CodeSampleNonlinearEqns.txt
+%  Problem:  Intersection of a unit circle and a sine wave
+%---------------------------------------------------------
+Variables  x, y           % Unknowns
+Zero[1] = y^2 + x^2 - 1   % y^2 + x^2 = 1
+Zero[2] = y - sin(x)      % y = sin(x)
+
+%---------------------------------------------------------
+Input  x = 2,  y = 3      % Guess for the solution
+
+%---------------------------------------------------------
+%       Code generation for numerical solution (Matlab, C, Fortran, etc.)
+Code Nonlinear( Zero, x, y ) CodeSampleNonlinearEqns.m
+
+save CodeSampleNonlinearEqns.all

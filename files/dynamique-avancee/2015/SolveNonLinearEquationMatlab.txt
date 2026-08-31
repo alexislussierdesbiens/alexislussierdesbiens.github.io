@@ -1,0 +1,18 @@
+function SolveNonLinearEquationMatlab
+
+% Attention, la solution dépends de la valeur initiale 
+% p.ex., essayer avec -[2 3] et [2 3]
+xInitialGuess = [2 3]; 
+
+x = fsolve(@NonLinearEquations, xInitialGuess)
+
+end
+
+% Groupe d'équations à résoudre
+function fx = NonLinearEquations(x)
+
+% Intersection d'un cercle et d'un sinus
+fx(1) = x(2)^2 + x(1)^2 - 1;  % y^2 + x^2 = 1  
+fx(2) = x(2) - sin(x(1));     % y = sin(x)      
+
+end

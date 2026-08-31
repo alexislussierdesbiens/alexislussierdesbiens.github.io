@@ -1,0 +1,140 @@
+NewtonianFrame N
+RigidBody A, B, C
+
+Constant LA = 1 m, LB = 2 m, LC = 2 m, LN = 1 m
+Constant g = 9.81 m/sec^2
+Constant H = 200 N
+Constant b = 50 N*m/rad
+Specified TA
+SpecifiedEncode TAmodel
+
+Variable qA'', qB'', qC''
+Variable FCx, FCy
+
+Point Ab(A), Ba(B), Bc(B), Cb(C), Cn(C), Nc(N)
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%% Masses et inerties %%
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+A.SetMass(mA = 10 kg)
+B.SetMass(mB = 20 kg)
+C.SetMass(mC = 20 kg)
+
+A.SetInertia(Acm, 0, IA = mA*LA^2/12,  IA)
+B.SetInertia(Bcm, 0, IB = mB*LB^2/12,  IB)
+C.SetInertia(Ccm, 0, IC = mC*LC^2/12,  IC)
+
+%%%%%%%%%%%%%%%
+%% Rotations %%
+%%%%%%%%%%%%%%%
+
+
+A.RotateZ(N,qA)
+B.RotateZ(N,qB)
+C.RotateZ(N,qC)
+
+%%%%%%%%%%%%%%%%%%
+%% Translations %%
+%%%%%%%%%%%%%%%%%%
+
+Acm.Translate(No, LA/2*Ax>)
+Ab.Translate(No, LA*Ax>)
+Ba.Translate(Ab,0>)
+
+Bcm.Translate(Ba, LB/2*Bx>)
+Bc.Translate(Ba, LB*Bx>)
+
+Nc.Translate(No, Ln*Ny>)
+Cn.Translate(Nc, 0>)
+
+Ccm.Translate(Cn, LC/2*Cx>)
+Cb.Translate(Cn, LC*Cx>)
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Forces et Moments %%
+%%%%%%%%%%%%%%%%%%%%%%%
+
+System.AddForceGravity(g*Nx>)			% Gravité
+Cb.AddForce(H*Ny>)						% Forces appliquée au point Cb
+Bc.AddForce(Cb, FCx*Nx> + FCy*Ny>)		% Forces de contraintes
+% TA = force d'actionneur
+% b*qA' = friction au joint
+A.AddTorque((TA-b*qA')*Az>)
+%%%%%%%%%%%%%%%%%%
+%% Constraintes %%
+%%%%%%%%%%%%%%%%%%
+Loop> = Cb.GetPosition(No)-Bc.GetPosition(No)
+
+Loop[1] = Dot(Loop>, Ny>)
+Loop[2] = Dot(Loop>, Nx>)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Statique et EDM avec Kane %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+SetGeneralizedSpeed(qA',qB',qC')
+
+%% Solution à l'équilibre statique
+KaneStatics = system.GetStaticsKane()
+
+Input qA' = 0, TA = 0
+StaticSolution = Solve( [KaneStatics; Loop],  qA=pi/10 rad, qB=pi/5 rad, qC=pi/8 rad, FCx=0 N, FCy=0 N )
+
+%% Résolution dynamique
+KaneDynamics = system.GetDynamicsKane()
+
+% Pour la résolution dynamique, on aimerait avoir des équation de contraintes linéaires. 
+% Pour ce faire, on différentie les équations de contraintes et on trouve les 
+% conditions initiales (une stabilisation des contraintes pourrait être requise).   
+LoopDt = Dt(Loop)
+LoopDtDt = Dt(LoopDt)
+
+% On ajoute les contraintes d'accélération aux EDM trouvées selon Kane :
+KaneAugmented = [ KaneDynamics;  LoopDtDt ]
+
+%%%%%%%%%%%%
+%% Inputs %%
+%%%%%%%%%%%%
+
+Input  tFinal = 10 sec, absError = 1.0E-07
+
+%% Trouver les conditions initiales (qB, qC, qB', qC') pour des valeurs initiale de qA et qA'
+Input  qA = pi/6 rad,  qA' = 0 rad/sec
+SolveSetInput( Loop,    qB = pi/3 rad,      qC  = pi/9 rad )
+SolveSetInput( LoopDt,  qB' = 0,  qC' = 0) 
+
+%%%%%%%%%%%%%
+%% Outputs %%
+%%%%%%%%%%%%%
+% Output 1, les valeurs des états et des forces: 
+Output  t sec,  qA rad,  qB rad,  qC rad, qA' rad/sec,  qB' rad/sec,  qC' rad/sec, FCx Newtons,  FCy Newtons
+% Output 2, les points d'intérêt: 
+Nox = Dot(nx>, No.GetPosition(No))
+Noy = Dot(ny>, No.GetPosition(No))
+Abx = Dot(nx>, Ab.GetPosition(No))
+Aby = Dot(ny>, Ab.GetPosition(No))
+Bcx = Dot(nx>, Bc.GetPosition(No))
+Bcy = Dot(ny>, Bc.GetPosition(No))
+Cnx = Dot(nx>, Cn.GetPosition(No))
+Cny = Dot(ny>, Cn.GetPosition(No))
+Output Nox, Noy, Abx, Aby, Bcx, Bcy, Cnx, Cny
+
+%%%%%%%%%%%%%%%%
+%% Résolution %%
+%%%%%%%%%%%%%%%%
+% Résoudre pour la valeur de TA, connaissant qA'', pour contrôleur feedforward:
+SolTA = solve( KaneAugmented,  TA, qB'', qC'', FCx, FCy )
+
+TAmodel = SolTA[1]
+
+% Nos inconnues sont: qA'', qB'', qC'', FCx, FCy. Il y a deux façons de résoudre:
+%
+% 1. On demande à MG d'isoler les variables d'intérêts et on résout: 
+solve( KaneAugmented,  qA'', qB'', qC'', FCx, FCy ) 
+% ODE() MGFourBarKaneAugmented3
+%
+% 2. On n'isole pas les variable et MG va le faire numériquement...
+% ODE( KaneAugmented,  qA'', qB'', qC'', FCx, FCy ) MGFourBarKaneAugmented3.m
+
+

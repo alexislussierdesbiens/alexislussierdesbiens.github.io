@@ -1,0 +1,41 @@
+% File: MGProjectileMotionFMA.txt
+%------------------------------------------------------
+%       Physical objects
+NewtonianFrame N
+Particle       Q
+%---------------------------------------------------
+%       Mathematical declarations
+Constant   g = 9.8 m/s^2,  b = 0.05 N*s/m
+Constant   k = 1000000 N/m
+Variable   x'',  y''
+Q.SetMass( m = 145 grams )
+%---------------------------------------------------
+%       Translational kinematics
+Q.Translate( No, x*Nx> + y*Ny> )
+%---------------------------------------------------
+%       Add relevant forces
+Q.AddForce( -m * g * Ny> )
+Q.AddForce( -b * Q.GetVelocity(N) )
+%---------------------------------------------------
+%       Add contact forces
+CompressionFloor = -y; 
+isContactingFloor = 0.5*round(sign(CompressionFloor)+1)
+Q.AddForce(k*CompressionFloor*isContactingFloor*Ny>)
+CompressionCeiling = y-.10
+isContactingCeiling = 0.5*round(sign(CompressionCeiling)+1)
+Q.AddForce(-k*CompressionCeiling*isContactingCeiling*Ny>)
+%---------------------------------------------------
+%       Form equations of motion with F = m*a
+DynamicEqn[1] = Dot( Q.GetDynamics(), Nx> )
+DynamicEqn[2] = Dot( Q.GetDynamics(), Ny> )
+Solve( DynamicEqn,  x'',  y''  )
+%---------------------------------------------------
+%       Solve nonlinear ODEs (numerically integrate)
+Input  tFinal = .6 sec,  tStep = 0.002 sec,  absError = 1.0E-7
+Input  x = 0 m,  x' = 2 m/s
+Input  y = .09 m,  y' = -2 m/s
+Output  x m, y m
+ODE() MGProjectileMotionFMA
+%---------------------------------------------------
+Save MGProjectileMotionFMA.all
+Quit

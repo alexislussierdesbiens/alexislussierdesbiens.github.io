@@ -1,0 +1,87 @@
+%
+% Equations Babyboot avec Kane, version manuelle 
+% Problem 21.10, Automne 2022
+%
+
+Variable qA'', qB''
+Constant LA, LB
+Constant g
+Constant mA, mB
+Constant IA, IBxx, IByy, IBzz
+
+NewtonianFrame N
+RigidFrame A, B
+Point Acm, Bcm
+
+r_Acm_No> = -LA*Az>
+r_Bcm_No> = -LB*Az>
+
+N_A = [1, 0, 0; 0, cos(qA), -sin(qA); 0, sin(qA), cos(qA)]
+A_B = [cos(qB), -sin(qB), 0; sin(qB), cos(qB), 0; 0, 0, 1]
+
+w_A_N> = qA'*Nx>
+w_B_A> = qB'*Az>
+
+% Calcul de l'accélération angulaire
+alf_A_N> = Dt(w_A_N>,N)
+alf_B_N> = Dt(w_B_N>,N)
+
+% Calcul des vitesses et accélérations linéaires
+v_Acm_N> = Dt(r_Acm_No>,N)
+v_Bcm_N> = Dt(r_Bcm_No>,N)
+
+a_Acm_N> = Dt(v_Acm_N>,N)
+a_Bcm_N> = Dt(v_Bcm_N>,N)
+
+% Inertie
+I_A_Acm>> = IA*Ax>*Ax>
+I_B_Bcm>> = IBxx*Bx>*Bx> + IByy*By>*By> + IBzz*Bz>*Bz>
+
+% Kane pour la vitesse généralisée qA'
+
+GeneralizedResultantForceABqAp = Dot( mA*g*(-Nz>) , D(v_Acm_N>, qA',N) ) + Dot( mB*g*(-Nz>) , D(v_Bcm_N>, qA',N) )
+
+GeneralizedEffectiveForceAqAp = Dot( mA*a_Acm_N>, D(v_Acm_N>, qA', N)) + Dot( Dot(I_A_Acm>>, alf_A_N>), D(w_A_N>, qA',N))
+
+GeneralizedEffectiveForceBqAp = Dot( mB*a_Bcm_N>, D(v_Bcm_N>, qA', N)) + Dot( Dot(I_B_Bcm>>, alf_B_N>) + cross(w_B_N>, Dot(I_B_Bcm>>,w_B_N>)), D(w_B_N>, qA',N))
+
+Kane_qAp = -GeneralizedResultantForceABqAp + GeneralizedEffectiveForceAqAp + GeneralizedEffectiveForceBqAp
+
+solve(Kane_qAp, qA'')
+
+explicit(qA'')
+
+% Kane pour la vitesse généralisée qB'
+
+GeneralizedResultantForceABqBp = Dot( mA*g*(-Nz>) , D(v_Acm_N>, qB',N) ) + Dot( mB*g*(-Nz>) , D(v_Bcm_N>, qB',N) )
+
+GeneralizedEffectiveForceAqBp = Dot( mA*a_Acm_N>, D(v_Acm_N>, qB', N)) + Dot( Dot(I_A_Acm>>, alf_A_N>), D(w_A_N>, qB',N))
+
+GeneralizedEffectiveForceBqBp = Dot( mB*a_Bcm_N>, D(v_Bcm_N>, qB', N)) + Dot( Dot(I_B_Bcm>>, alf_B_N>) + cross(w_B_N>, Dot(I_B_Bcm>>,w_B_N>)), D(w_B_N>, qB',N))
+
+Kane_qBp = -GeneralizedResultantForceABqBp + GeneralizedEffectiveForceAqBp + GeneralizedEffectiveForceBqBp
+
+solve(Kane_qBp, qB'')
+
+explicit(qB'')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

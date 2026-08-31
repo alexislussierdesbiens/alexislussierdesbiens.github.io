@@ -1,0 +1,40 @@
+function CoupledODESFirstOrderMatlab
+% Résolution des équations du mouvement couplées
+% pour un corps rigide en rotation avec amortissement (b)
+
+% Fin de la période d'intégration
+t_fin = 10;
+
+% Vitesses ang. initiales selon des axes fixés au corps rigide
+etat_ini = [10; .1; 0.1];    
+
+% Intégration des équations avec ode45
+[T,X] = ode45(@RotatingBook, [0 t_fin], etat_ini); 
+
+figure
+plot(T,X); 
+grid on
+axis([0 t_fin -max(etat_ini) max(etat_ini)])
+ylabel('vitesse angulaire (rad/sec)')
+xlabel('temps (sec)')
+
+end 
+
+function xd = RotatingBook(t,x)
+
+% Affectation des variables en fonction des états communiqués par ode45
+wx = x(1); 
+wy = x(2);
+wz = x(3); 
+
+% Définition des constantes
+Ixx = 1;  Iyy = 2;  Izz = 3; b = 0; 
+
+% Équations du mouvement à résoudre
+wxd =  ((Iyy-Izz)*wy*wz-b*wx)/Ixx; 
+wyd =  ((Izz-Ixx)*wx*wz-b*wy)/Iyy;
+wzd =  ((Ixx-Iyy)*wx*wy-b*wz)/Izz;
+
+% Formation de la dérivée du vecteur d'état 
+xd = [wxd; wyd; wzd]; 
+end

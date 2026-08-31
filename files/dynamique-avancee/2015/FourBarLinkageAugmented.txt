@@ -1,0 +1,81 @@
+NewtonianFrame N
+RigidBody A, B, C
+
+Constant LA = 1 m, LB = 2 m, LC = 2 m, LN = 1 m
+Constant g = 9.81 m/sec^2
+Constant H = 200 N
+
+Variable qA'', qB'', qC''
+Variable   FCx, FCy
+
+Point Ab(A), Ba(B), Bc(B), Cb(C), Cn(C), Nc(N)
+
+%% Masses et inerties
+
+A.SetMass(mA = 10 kg)
+B.SetMass(mB = 20 kg)
+C.SetMass(mC = 20 kg)
+
+A.SetInertia(Acm, 0, IA = mA*LA^2/12,  IA)
+B.SetInertia(Bcm, 0, IB = mB*LB^2/12,  IB)
+C.SetInertia(Ccm, 0, IC = mC*LC^2/12,  IC)
+
+%% Rotations
+
+A.RotateZ(N,qA)
+B.RotateZ(N,qB)
+C.RotateZ(N,qC)
+
+%% Translations
+
+Acm.Translate(No, LA/2*Ax>)
+Ab.Translate(No, LA*Ax>)
+Ba.Translate(Ab,0>)
+
+Bcm.Translate(Ba, LB/2*Bx>)
+Bc.Translate(Ba, LB*Bx>)
+
+Nc.Translate(No, Ln*Ny>)
+Cn.Translate(Nc, 0>)
+
+Ccm.Translate(Cn, LC/2*Cx>)
+Cb.Translate(Cn, LC*Cx>)
+
+System.AddForceGravity(g*Nx>)			% Gravité
+Cb.AddForce(H*Ny>)						% Forces appliquée au point Cb
+Bc.AddForce(Cb, FCx*Nx> + FCy*Ny>)		% Forces de contraintes
+
+%% Constraintes
+
+Loop> = Cb.GetPosition(No)-Bc.GetPosition(No)
+Loop[1] = Dot(Loop>, Ny>)
+Loop[2] = Dot(Loop>, Nx>)
+
+LoopDt = Dt(Loop)
+LoopDtDt = Dt(LoopDt)
+
+%% EDM selon Kane
+
+SetGeneralizedSpeed(qA',qB',qC')
+KaneStatics = system.GetStaticsKane()
+KaneDynamics = system.GetDynamicsKane()
+
+%% Solution à l'équilibre statique
+StaticSolution = Solve( [KaneStatics; Loop],  qA=10 deg, qB=50 deg, qC=30 deg, FCx=0 N, FCy=0 N )
+
+%% Trouver les conditions initiales (qB, qC, qB', qC') pour des valeurs de qA et qA'
+Input  qA = 30 deg,  qA' = 0 rad/sec
+SolveSetInput( Loop,    qB = 60 deg,      qC  = 20 deg )
+SolveSetInput( LoopDt,  qB' = 0 rad/sec,  qC' = 0 rad/sec ) 
+
+Input  tFinal = 7 sec,  tStep = 0.02,  absError = 1.0E-07
+Output  t sec,  qA deg,  qB deg,  qC deg,  FCx Newtons,  FCy  Newtons
+
+%% Solution Dynamique 
+% On ajoute les contraintes d'accélération aux équations du mouvement trouvées selon Kane pour trouver les accélérations et les forces de contraintes
+KaneAugmented = [ KaneDynamics;  LoopDtDt ]
+ODE( KaneAugmented,  qA'', qB'', qC'', FCx, FCy ) MGFourBarKaneAugmented
+
+
+
+

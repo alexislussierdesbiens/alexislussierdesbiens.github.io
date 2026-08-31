@@ -1,0 +1,102 @@
+%% Code MG générant les équations dynamiques du bras robotique manipulant une balle (HW21.7)
+
+NewtonianFrame N
+RigidFrame A, B, C
+Particle Q
+RigidBody E
+
+Point AB(A), BC(B), CD(C), EN(E)
+
+Constant r = 0.4 m, h = 0.6 m, LB = 0.8 m, LC = 1.2 m, g = 9.81 m/sec^2
+
+Variable qA'', qB'', qC'', wx', wy', wz'
+Variable Fx, Fy, Fz
+Variable TA, TB				% Doit être une variable pour résoudre pour TA et TB
+
+
+%% Masses et inerties
+
+Q.SetMass(m = 800 kg)
+E.SetMass(mE = 50 kg)
+I = 2/5*mE*r^2
+E.SetInertia(Ecm, I*1>>)
+
+%% Rotations
+
+A.RotateY(N, qA)
+B.RotateZ(A, qB)
+C.RotateZ(A, -qC) % Notez bien, qC est défini à partir du référentiel A
+E.SetAngularVelocity(A, wx*Ax> + wy*Ay> + wz*Az>) % Même chose, à partir du référentiel A
+
+%% Translations
+
+AB.Translate(No, h*Ay>)
+BC.Translate(AB, LB*Bx>)
+CD.Translate(BC, LC*Cx>)
+Q.Translate(CD, 0>)
+Ecm.Translate(CD, -r*Ay>)
+EN.Translate(Ecm, -r*Ay>, E) % Notez bien, cette formulation considère EN et Ecm comme deux points fixes sur E. Le vecteur -r*Ay> n'est donc pas dérivé pour le calcul de la vitesse et de l'accélération
+
+%% Forces/Moments
+
+En.AddForce(Fx*Ax> + Fy*Ay> + Fz*Az>)
+System.AddForceGravity(-g*Ay>)
+A.AddTorque(TA*Ay>)
+B.AddTorque(A, TB*Bz>) % On ajoute les deux, mais seulement le couple sur B produit du travail et restera dans les EDM
+
+
+%% Contraintes
+
+% Utilisation de la contrainte de roulement pour relier wx et wz à qA' et qB'. On va utiliser la formulation "embedded", car wx et wz peuvent être complètement exprimés à partir de qA, qB et de leurs dérivés 
+Rolling> = En.GetVelocity(N)
+RollingConstraints[1] = Dot(Rolling>, Ax>)
+RollingConstraints[2] = Dot(Rolling>, Az>)
+solvedt(RollingConstraints, wx, wz) 
+
+% Utilisation de la contrainte de contact pour résoudre pour qC' et qC''. On utilise la formulation "embedded". Cette formulation élimine Fy de nos équations. 
+% En utilisant la formulation "augmented", on aurait utilisé les vitesses généralisées qA', qB', qC' et wy. Fy serait resté dans nos équations et l'équation de contrainte du contact aurait permis de résoudre le système. 
+ContactConstraint = Dot(En.GetPosition(No), Ny>)
+DtContactConstraint = Dt(ContactConstraint)  
+DtDtContactConstraint = Dt(DtContactConstraint)
+solvedt(DtContactConstraint, qC')
+
+%% EDM selon Kane
+
+SetGeneralizedSpeed(qA', qB', wy)
+KaneEqns = System.GetDynamicsKane()
+
+%% Calcul et définition des sorties
+
+ENx = Dot(EN.GetPosition(No), Nx>)
+ENz = Dot(EN.GetPosition(No), Nz>)
+CNy = Dot(CD.GetPosition(No), Ny>)
+
+Output t sec, Enx m, Enz m
+Output qA deg, qA' deg/sec, qB deg, qB deg/sec, qC deg, CNy m
+
+%% Valeurs initiales (garder tout en unités SI, e.g., radians, pour faciliter l'utilisation avec Matlab)
+
+Input qA = 0 rad, qA' = 0 rad/sec, qB = 40*pi/180 rad, qB' = 0 rad/sec, wy = 0 rad/sec
+Input tFinal = 16 sec
+SolveSetInput(ContactConstraint, qC = 0 rad)
+
+% Différentes formulations... 
+test1 = solve([KaneEqns; DtDtContactConstraint], qA'', qB'', wy', qC'')
+test2 = solve([KaneEqns], qA'', qB'', wy')
+% Mêmes équations... 
+test1[1] - test2[1]
+test1[2] - test2[2]
+test1[3] - test2[3]
+
+%% Génération du code Matlab
+% Comme la coordonnée qC fait partie des équations dynamique de qA'', qB'' et wy', on doit réintroduire l'équation différentielle de qC'' dans notre système d'équation à résoudre. De cette façon, qC sera résolu en même temps que les autres variables. 
+% Ceci n'est pas la formulation "augmented" du système, mais juste un truc d'intégration pour calculer qC plus rapidement (au lieu de résoudre une équation N.L. pour qC) 
+ODE([KaneEqns; DtDtContactConstraint], qA'', qB'', qC'', wy') robotball.m
+
+% Copier les expressions suivantes dans un fonction Matlab pour le contrôleur FF: 
+% qCpFF = solve(DtContactConstraint, qC')
+% qCppFF = solve(DtDtContactConstraint, qC'') 
+% wxFF = wx
+% wzFF = wz
+% TAFF = solve(KaneEqns[1], TA)
+% TBFF = solve(KaneEqns[2], TB)

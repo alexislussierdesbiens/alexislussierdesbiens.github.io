@@ -1,0 +1,126 @@
+NewtonianFrame N
+RigidBody A, B
+% Creates Ai>, Bi>, Acm, Bcm, Ao, Bo mais ca ne dit pas ils sont ou! À définir plus tard... Toutefois, Acm et Ao sont sur A et similairement pour Bcm/Bo
+
+% Point Ab, Ba
+% Si les points sont fixes sur un corps rigide utiliser la notation Point(CorpsRigide)
+Point Ab(A), Ba(B)
+
+Variable qA'', qB''
+Variable Rx, Ry, Rz
+% Inclure les forces de reactions si pas certain... on va voir ce qui reste dans les équations à la find
+
+Constant LA, LB, LBaAcm
+Constant IAxx, IBxx, IByy, IBzz
+Constant mA, mB
+Constant g
+
+% Ajouter les forces de graviter "manuellement"
+% 	Acm.AddForce(-mA*g*Nz>)
+% 	Bcm.AddForce(-mB*g*Nz>)
+% Ou utiliser la fonction suivante: 
+A.SetMass(mA)
+B.SetMass(mB)
+System.AddForceGravity(-g*Nz>)
+
+% Ajout des autres forces
+% 	Ab.AddForce(Rx*Ax> + Ry*Ay> + Rz*Az>)
+% 	Ba.AddForce(-(Rx*Ax> + Ry*Ay> + Rz*Az>))
+% Ou, pour des forces d'action/réaction (Type "help AddForce" pour plus de détails): 
+Ab.AddForce(Ba, Rx*Ax> + Ry*Ay> + Rz*Az>)
+
+
+% test> = B.GetMomentOfForces(Ba) 
+	% Unable to form  Bcm's  Position  from  Ba. 
+	% Il manque la position pour calculer les moments!
+
+% Défini la position 
+Bcm.SetPosition(No, -LB*Az>)
+Acm.SetPosition(No, -LA*Az>)
+Ab.SetPosition(Acm, -LBaAcm*Az>)
+Ba.SetPosition(Ab, 0>)
+
+
+% test> = B.GetMomentOfForces(Ba) 
+	% Error: The rotation matrix relating A to N is missing and cannot be formed. 
+	% Il manque l'orientation pour calculer les produits vectoriels... MG ne voit pas ton dessin, il faut lui expliquer en détail
+
+A.RotateX(N, qA)
+B.RotateZ(A, qB)
+
+test> = B.GetMomentOfForces(Ba) 
+	% Ça marche, on a le coté gauche de l'équation (moment résultants sur B autour de Ba
+
+% test2> = B.GetMomentOfEffectiveForce(Ba)
+	% The inertia dyadic of B about Bcm cannot be formed.
+	% Pour former le coté droit il faut l'inertie ("help SetInertia")
+
+% Même si IAyy et IAzz ne sont pas spécifié dans le problème, on peut les inclure et voir si elles apparaissent dans les équations finales!
+A.SetInertia(Acm, IAxx, IAyy, IAzz)
+B.SetInertia(Bcm, IBxx, IByy, IBzz)
+
+% test2> = B.GetMomentOfEffectiveForce(Ba)
+	% a_Bcm_N> has not been defined.
+	% Il faut calculer l'accélération
+
+% Translate spécifie la position et calcule la vitesse et l'accélération d'un point. C'est important d'avoir défini la vitesse angulaire précédemment pour pouvoir calculer les vitesses/accélération du point. 
+Bcm.Translate(No, -LB*Az>)
+Acm.Translate(No, -LA*Az>)
+Ab.Translate(Acm, -LBaAcm*Az>)
+Ba.Translate(Ab, 0>)
+
+test2> = B.GetMomentOfEffectiveForce(Ba)
+	% Yes, ca marche! On a maintenant le coté droit de l'équation (moment efficace)
+
+%%  Technique de D'Alembert
+
+EqnDAlembert[1] = Dot(Bz>, B.GetMomentOfForces(Ba) - B.GetMomentOfEffectiveForce(Ba))
+EqnDAlembert[2] = Dot(Ax>, (A.GetMomentOfForces(No) + B.GetMomentOfForces(No)) - (A.GetMomentOfEffectiveForce(No) + B.GetMomentOfEffectiveForce(No)))
+
+SolDAlembert = solve(EqnDAlembert, qA'', qB'')
+
+% Ou, plus directement avec la fonction GetDynamics(Point) qui retourne Mefficace - Mrésultant
+EqnDAlembert2[1] = Dot(Bz>, B.GetDynamics(Ba))
+EqnDAlembert2[2] = Dot(Ax>, System.GetDynamics(No))
+
+%% Technique de Kane
+
+% On commence par définir les vitesses généralisées et on utilise GetDynamicsKane
+SetGeneralizedSpeed(qA', qB')
+EqnKane = System.GetDynamicsKane()
+
+SolKane = solve(EqnKane, qA'', qB'')
+	% Les forces ne font pas partie des equation, meme chose pour IAyy, IAzz
+	
+%% Comparaison des solutions	
+SolDAlembert - SolKane
+
+
+% Set values of qA'' and qB'' in the workspace for resolution with ODE()
+solve(EqnKane, qA'', qB'')
+
+%% Définir les valeurs des constantes
+Input g = 9.81 m/sec^2
+Input LA = 7.5 cm, LB = 20 cm
+Input mA = 0.01 kg, mB = 0.1 kg
+Input IAxx = 0.05 kg*cm^2, IBxx = 2.5 kg*cm^2, IByy = 0.5 kg*cm^2, IBzz = 2 kg*cm^2 
+
+%% Définir les valeurs initiales et le temps d'intégration
+Input qA = 10 deg, qA' = 0 deg/s, qB = 1 deg, qB' = 0 deg/sec
+Input tFinal = 3 sec
+
+% Par défault, MG retourne le temps et les états du système en sortie. 
+% On peut aussi calculer des valeurs autres et les spécifier comme sorties désirées. 
+Input LBaAcm = 2.5 cm
+BaY = Dot(Ny>, Ba.GetPosition(No))
+BaZ = Dot(Nz>, Ba.GetPosition(No))
+Output t sec, qA deg, qA' deg/sec, qB deg, qB' deg/sec 	% Output par défault
+Output t sec, BaY cm, BaZ cm							% Autre output 
+
+ODE() MotionBabyBoot									% Résout les ODE dans le workspace et enregistre les résultats dans le fichier MotionBabyBoot.i		
+% ODE(EqnKane, qA'', qB'') MotionBabyBoot				% Résout les ODE dans EqnKane (pas besoin d'avoir résolut symboliquement pour qA'' et qB''
+% ODE(EqnKane, qA'', qB'') MotionBabyBoot.m				% Écrit une fonction matlab comportant les équations pour résoudre pour qA'' et qB''
+
+
+	
+

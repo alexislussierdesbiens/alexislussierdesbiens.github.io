@@ -1,0 +1,104 @@
+%
+% Equations Four-bar linkage Kane Augmented
+% Problem 22.5, Automne 2022
+%
+
+NewtonianFrame N
+RigidBody A, B, C
+
+Constant LA = 1 m, LB = 2 m, LC = 2 m, LN = 1 m
+Constant g = 9.81 m/s^2
+Constant H = 200 N
+
+Variable qA'', qB'', qC''
+Variable RAx, RAy, RBx, RBy, RCx, RCy, RNx, RNy
+
+Point Ab(A), BC(B), CB(C), NC(N)
+
+A.SetMass(mA = 10 kg)
+B.SetMass(mB = 20 kg)
+C.SetMass(mC = 20 kg)
+
+A.SetInertia(Acm, 0, IA = mA*LA^2/12, IA)
+B.SetInertia(Bcm, 0, IB = mB*LB^2/12, IB)
+C.SetInertia(Ccm, 0, IC = mC*LC^2/12, IC)
+
+A.RotateZ(N, qA)
+B.RotateZ(N, qB)
+C.RotateZ(N, qC)
+
+Ao.Translate(No, 0>)
+Acm.Translate(No, LA/2*Ax>)
+Ab.Translate(No, LA*Ax>)
+
+Bo.Translate(Ab, 0>)
+Bcm.Translate(Bo, LB/2*Bx>)
+Bc.Translate(Bo, LB*Bx>)
+
+Co.Translate(No, LN*Ny>)
+Ccm.Translate(Co, LC/2*Cx>)
+Cb.Translate(Co, LC*Cx>)
+
+NC.Translate(Co, 0>)
+
+System.AddforceGravity(g*Nx>)
+Cb.AddForce(H*Ny>)
+Ao.AddForce(No, RAx*Nx> + RAy*Ny>)
+Bo.AddForce(Ab, RBx*Nx> + RBy*Ny>)
+Cb.AddForce(Bc, RCx*Nx> + RCy*Ny>)
+Co.AddForce(NC, RNx*Nx> + RNy*Ny>)
+
+% Kane
+
+SetGeneralizedSpeed(qA', qB', qC')
+KaneStatics = System.GetStaticsKane()
+KaneDynamics = System.GetDynamicsKane()
+
+% Contraintes
+
+Loop> = Cb.GetPosition(No) - Bc.GetPosition(No)
+Loop[1] = Dot(Loop>, Nx>)
+Loop[2] = Dot(Loop>, Ny>)
+LoopDt = Dt(Loop)
+LoopDtDt = Dt(Dt(Loop))
+
+% Équilibre statique
+
+StaticSolution = solve([KaneStatics; Loop], qA = 40 deg, qB = 50 deg, qC = 30 deg, RCx = 0 N, RCy = 0 N)
+
+% Équilibre dynamique
+
+% solve([KaneDynamics; LoopDtDt], qA'', qB'', qC'', RCx, RCy)
+
+Input qA = 30 deg, qA' = 0 deg/s
+SolveSetInput(Loop, qB = 60 deg, qC = 20 deg)
+SolveSetInput(LoopDt, qB' = 0 deg/s, qC' = 0 deg/s)
+
+Input tFinal = 7 sec, tStep = 0.02 sec, absError = 1e-7
+Output t sec, qA deg, qB deg, qC deg, RCx Newtons, RCy Newtons
+
+ODE([KaneDynamics; LoopDtDt], qA'', qB'', qC'', RCx, RCy) FourBarKaneAugmented 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
