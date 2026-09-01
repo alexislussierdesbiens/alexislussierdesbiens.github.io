@@ -7,6 +7,52 @@ author_profile: true
 
 {% include base_path %}
 
-{% for post in site.teaching reversed %}
-  {% include archive-single.html %}
+<p>J'ai enseigné plusieurs cours de conception, de dynamique et de dynamique des collisions, ainsi que des cours de robotique aérienne. Certains de ces cours sont listés ci-dessous.</p>
+
+{% comment %}
+  Entries in _teaching/ are grouped by their `course_key` front-matter field.
+  Courses are ordered by their most recent session; that session is linked as
+  "Session courante", older sessions of the same course as "Sessions précédentes".
+  An entry without `course_key` is shown on its own.
+{% endcomment %}
+
+{% assign entries = site.teaching | sort: "date" | reverse %}
+{% assign seen = "" %}
+
+{% for post in entries %}
+  {% assign key = post.course_key | default: post.permalink %}
+  {% assign key_tag = key | prepend: "|" | append: "|" %}
+  {% unless seen contains key_tag %}
+    {% assign seen = seen | append: key_tag %}
+
+    <h2 class="archive__subtitle">{{ post.course_title | default: post.title }}</h2>
+    {% if post.course_description %}
+      <p>{{ post.course_description }}</p>
+    {% endif %}
+
+    {% assign n_older = 0 %}
+    {% for other in entries %}
+      {% assign other_key = other.course_key | default: other.permalink %}
+      {% if other_key == key and other.url != post.url %}
+        {% assign n_older = n_older | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+
+    <p>
+      <strong>Session courante :</strong>
+      <a href="{{ base_path }}{{ post.url }}">{{ post.session | default: post.title }}</a>
+      {% if n_older > 0 %}
+        <br>
+        <strong>Sessions précédentes :</strong>
+        {% assign i = 0 %}
+        {% for other in entries %}
+          {% assign other_key = other.course_key | default: other.permalink %}
+          {% if other_key == key and other.url != post.url %}
+            {% assign i = i | plus: 1 %}
+            <a href="{{ base_path }}{{ other.url }}">{{ other.session | default: other.title }}</a>{% if i < n_older %} · {% endif %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    </p>
+  {% endunless %}
 {% endfor %}
